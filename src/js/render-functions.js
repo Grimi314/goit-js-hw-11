@@ -36,7 +36,7 @@ export function createGallery(images) {
         </a>
         <ul class="number-list">
           <li class="numder-item">
-            <p class="umber-text">Likes</p>
+            <p class=" ">Likes</p>
             <p class="umber-text">${likes}</p>
           </li>
           <li class="numder-item">
@@ -59,28 +59,9 @@ export function createGallery(images) {
   gallery.insertAdjacentHTML('beforeend', markup);
 
   lightbox.refresh();
-
-  gallery.addEventListener('click', event => {
-    event.preventDefault();
-    const img = event.target;
-
-    if (!img) {
-      return;
-    }
-
-    const link = img.dataset.source;
-
-    if (img.nodeName !== 'IMG') return;
-
-    const instance = basicLightbox.create(`<img class="modal" src="${link}">`);
-
-    instance.show();
-  });
 }
 
-button.addEventListener('click', clearGallery);
-
-function clearGallery() {
+export function clearGallery() {
   gallery.innerHTML = '';
 }
 
