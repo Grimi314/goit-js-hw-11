@@ -25,7 +25,7 @@ userForm.addEventListener('submit', event => {
 
   getImagesByQuery(query)
     .then(response => {
-      if (response.data.hits.length === 0) {
+      if (response.length === 0) {
         iziToast.error({
           title: 'Error',
           message:
@@ -34,7 +34,7 @@ userForm.addEventListener('submit', event => {
         return;
       }
 
-      createGallery(response.data.hits);
+      createGallery(response);
     })
     .catch(error => {
       console.log(error);

@@ -22,5 +22,7 @@ export const config = {
 export function getImagesByQuery(query) {
   config.params.q = query;
 
-  return axios.get('https://pixabay.com/api/', config);
+  return axios.get('https://pixabay.com/api/', config).then(response => {
+    return response.data.hits;
+  });
 }
